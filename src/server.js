@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3000;
 // creating db options, name and url
 const dbOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
-const DB_NAME = "tastyBakeryDb";
+const DB_NAME = "workouts";
 
 const DB_URL = process.env.MONGODB_URI || `mongodb://localhost/${DB_NAME}`;
 
