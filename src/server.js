@@ -5,6 +5,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 
 // importing dev created dependencies
+const routes = require("./routes");
 const logger = require("./middleware/logger");
 
 // assigning a port
@@ -13,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 // creating db options, name and url
 const dbOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
-const DB_NAME = "workouts";
+const DB_NAME = "workout";
 
 const DB_URL = process.env.MONGODB_URI || `mongodb://localhost/${DB_NAME}`;
 
@@ -28,6 +29,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "../", "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(routes);
 app.use(logger);
 
 // this function will run the server

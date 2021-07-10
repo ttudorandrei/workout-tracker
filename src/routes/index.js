@@ -1,8 +1,10 @@
-const { Router } = require("exporess");
+const { Router } = require("express");
+
+const apiRoutes = require("./api");
 
 const router = Router();
 
-router.use("/api", () => {});
-router.use("/html", () => {});
+router.use("/api", apiRoutes);
+router.use("/", () => {});
 
 module.exports = router;
