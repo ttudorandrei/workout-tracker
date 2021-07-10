@@ -4,6 +4,9 @@ const cors = require("cors");
 const path = require("path");
 const mongoose = require("mongoose");
 
+// importing dev created dependencies
+const logger = require("./middleware/logger");
+
 // assigning a port
 const PORT = process.env.PORT || 3000;
 
@@ -25,6 +28,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "../", "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(logger);
 
 // this function will run the server
 const init = async () => {
