@@ -1,7 +1,14 @@
 const { Workout } = require("../../models");
+const path = require("path");
+
+const currentPath = path.join(__dirname, "../../public/", "index.html");
 
 const renderHomepage = async (req, res) => {
-  res.json("/");
+  try {
+    res.sendFile(currentPath);
+  } catch (error) {
+    console.info(error.message);
+  }
 };
 const renderStatsPage = async (req, res) => {
   res.json("stats page hit");
