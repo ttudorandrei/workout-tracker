@@ -13,6 +13,7 @@ const workoutSchema = {
     {
       type: {
         type: String,
+        enum: ["resistance", "cardio"],
       },
       name: {
         type: String,

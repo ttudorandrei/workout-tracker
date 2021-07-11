@@ -27,4 +27,14 @@ const updateWorkout = async (req, res) => {
   }
 };
 
-module.exports = { getAllWorkouts, updateWorkout };
+const addWorkout = async (req, res) => {
+  try {
+    const newWorkout = await Workout.create(req.body);
+
+    res.json(newWorkout);
+  } catch (error) {
+    console.info(error.message);
+  }
+};
+
+module.exports = { getAllWorkouts, updateWorkout, addWorkout };
