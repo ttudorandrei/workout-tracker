@@ -37,4 +37,13 @@ const addWorkout = async (req, res) => {
   }
 };
 
-module.exports = { getAllWorkouts, updateWorkout, addWorkout };
+const getRange = async (req, res) => {
+  try {
+    const workoutRange = Workout.aggregate();
+    res.json(workoutRange);
+  } catch (error) {
+    console.info();
+  }
+};
+
+module.exports = { getAllWorkouts, updateWorkout, addWorkout, getRange };
