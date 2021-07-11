@@ -1,13 +1,13 @@
 const { Workout } = require("../../models");
 
 const renderHomepage = async (req, res) => {
-  console.log("homepage hit");
+  res.json("/");
 };
 const renderStatsPage = async (req, res) => {
-  console.log("stats page hit");
+  res.json("stats page hit");
 };
 const renderExercisePage = async (req, res) => {
-  console.log("exercise page hit");
+  res.json("exercise page hit");
 };
 
 module.exports = { renderHomepage, renderStatsPage, renderExercisePage };

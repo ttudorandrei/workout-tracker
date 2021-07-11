@@ -12,12 +12,16 @@ const getAllWorkouts = async (req, res) => {
 const updateWorkout = async (req, res) => {
   try {
     const { id } = req.params;
+
     const workoutToUpdate = await Workout.findOneAndUpdate(
-      { _id: id },
+      id,
       {
         $set: req.body,
-      }
+      },
+      { useFindAndModify: false }
     );
+
+    res.json(workoutToUpdate);
   } catch (error) {
     console.info(error.message);
   }
