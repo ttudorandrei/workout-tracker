@@ -3,9 +3,10 @@ const { Workout } = require("../../models");
 const getAllWorkouts = async (req, res) => {
   try {
     const workouts = await Workout.find({});
-    res.json(workouts);
+    return res.status(200).json(workouts);
   } catch (error) {
     console.info(error.message);
+    return res.status(500).json({ error: "Failed to get workout" });
   }
 };
 
@@ -21,9 +22,10 @@ const updateWorkout = async (req, res) => {
       { useFindAndModify: false }
     );
 
-    res.json(workoutToUpdate);
+    return res.status(200).json(workoutToUpdate);
   } catch (error) {
     console.info(error.message);
+    return res.status(500).json({ error: "Failed to update workout" });
   }
 };
 
@@ -31,18 +33,20 @@ const addWorkout = async (req, res) => {
   try {
     const newWorkout = await Workout.create({});
 
-    res.json(newWorkout);
+    return res.status(200).json(newWorkout);
   } catch (error) {
     console.info(error.message);
+    return res.status(500).json({ error: "Failed to add workout" });
   }
 };
 
 const getRange = async (req, res) => {
   try {
     const workoutRange = Workout.aggregate();
-    res.json(workoutRange);
+    return res.status(200).json(workoutRange);
   } catch (error) {
     console.info();
+    return res.status(500).json({ error: "Failed to get workout" });
   }
 };
 
