@@ -11,12 +11,12 @@ const getAllWorkouts = async (req, res) => {
 
 const updateWorkout = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { id } = req.params.id;
 
-    const workoutToUpdate = await Workout.findOneAndUpdate(
+    const workoutToUpdate = await Workout.findByIdAndUpdate(
       id,
       {
-        $set: req.body,
+        $push: { exercises: req.body },
       },
       { useFindAndModify: false }
     );
@@ -29,7 +29,7 @@ const updateWorkout = async (req, res) => {
 
 const addWorkout = async (req, res) => {
   try {
-    const newWorkout = await Workout.create(req.body);
+    const newWorkout = await Workout.create({});
 
     res.json(newWorkout);
   } catch (error) {
