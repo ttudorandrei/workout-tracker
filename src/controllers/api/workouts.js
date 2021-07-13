@@ -12,7 +12,7 @@ const getAllWorkouts = async (req, res) => {
 
 const updateWorkout = async (req, res) => {
   try {
-    const { id } = req.params.id;
+    const { id } = req.params;
 
     const workoutToUpdate = await Workout.findByIdAndUpdate(
       id,

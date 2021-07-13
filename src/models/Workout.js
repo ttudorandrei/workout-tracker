@@ -7,19 +7,22 @@ const Schema = mongoose.Schema;
 const workoutSchema = {
   day: {
     type: Date,
-    default: Date.now(),
+    default: Date.now,
   },
   exercises: [
     {
       type: {
         type: String,
         enum: ["resistance", "cardio"],
+        required: true,
       },
       name: {
         type: String,
+        required: true,
       },
       duration: {
         type: Number,
+        required: true,
       },
       weight: {
         type: Number,
