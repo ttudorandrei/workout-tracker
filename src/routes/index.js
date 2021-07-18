@@ -5,6 +5,7 @@ const htmlRoutes = require("./html");
 
 const router = Router();
 
+// routes
 router.use("/api", apiRoutes);
 router.use("/", htmlRoutes);
 

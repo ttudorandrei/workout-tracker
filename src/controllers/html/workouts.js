@@ -1,5 +1,7 @@
+// require dependencies
 const path = require("path");
 
+// rendering the static html files
 const renderHomepage = async (req, res) => {
   try {
     res.sendFile(path.join(__dirname, "../../../public/index.html"));
@@ -7,6 +9,8 @@ const renderHomepage = async (req, res) => {
     console.info(error.message);
   }
 };
+
+// rendering the static html files
 const renderStatsPage = async (req, res) => {
   try {
     res.sendFile(path.join(__dirname, "../../../public/stats.html"));
@@ -14,6 +18,8 @@ const renderStatsPage = async (req, res) => {
     console.info(error.message);
   }
 };
+
+// rendering the static html files
 const renderExercisePage = async (req, res) => {
   try {
     res.sendFile(path.join(__dirname, "../../../public/exercise.html"));

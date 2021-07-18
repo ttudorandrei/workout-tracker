@@ -1,7 +1,10 @@
+// importing model
 const { Workout } = require("../../models");
 
+// code to get all the workouts
 const getAllWorkouts = async (req, res) => {
   try {
+    // this adds all of the durations and adds a new field in the Workout object stored in the db
     const workouts = await Workout.aggregate([
       { $addFields: { totalDuration: { $sum: "$exercises.duration" } } },
     ]);
@@ -13,6 +16,7 @@ const getAllWorkouts = async (req, res) => {
   }
 };
 
+// function to target the Workout by id update it
 const updateWorkout = async (req, res) => {
   try {
     const { id } = req.params;
@@ -32,6 +36,7 @@ const updateWorkout = async (req, res) => {
   }
 };
 
+// function to add a new workout in the database
 const addWorkout = async (req, res) => {
   try {
     const newWorkout = await Workout.create({});
@@ -43,6 +48,7 @@ const addWorkout = async (req, res) => {
   }
 };
 
+// code to get all of the durations for the past seven days, add them, store them in a new key in the Workout object in the db and sort them with the latest being shown first
 const getRange = async (req, res) => {
   try {
     const workoutDuration = await Workout.aggregate([

@@ -37,6 +37,7 @@ const workoutSchema = {
   ],
 };
 
+// creating a new model called Workout with the newly created schema
 const WorkoutSchema = new Schema(workoutSchema);
 
 const Workout = mongoose.model("Workout", WorkoutSchema);

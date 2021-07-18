@@ -1,6 +1,7 @@
 // importing dependencies
 const { Router } = require("express");
 
+// api controllers
 const {
   getAllWorkouts,
   updateWorkout,
@@ -10,6 +11,7 @@ const {
 
 const router = Router();
 
+// api routes
 router.get("/workouts/range", getRange);
 router.put("/workouts/:id", updateWorkout);
 router.get("/workouts", getAllWorkouts);
