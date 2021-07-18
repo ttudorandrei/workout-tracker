@@ -35,7 +35,7 @@ New workout
 
 ## Link to Deployed Application
 
-You can access the deployed application by clicking [HERE](https://git.heroku.com/workoutt-tracker.git)
+You can access the deployed application by clicking [HERE](https://workoutt-tracker.herokuapp.com/)
 
 ## Link to GitHub Repository
 
